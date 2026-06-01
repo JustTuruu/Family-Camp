@@ -21,7 +21,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -53,7 +53,10 @@ export default function ContactForm() {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center py-10"
         >
-          <div className="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-5" aria-hidden="true">
+          <div
+            className="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-5"
+            aria-hidden="true"
+          >
             <svg
               className="w-8 h-8 text-forest"
               fill="none"
@@ -73,8 +76,7 @@ export default function ContactForm() {
             Амжилттай илгээлээ!
           </h4>
           <p className="text-bark/60 font-body text-sm leading-relaxed">
-            Таны мессеж хүлээн авлаа. Бид тантай удахгүй холбогдох
-            болно.
+            Таны мессеж хүлээн авлаа. Бид тантай удахгүй холбогдох болно.
           </p>
           <button
             onClick={() => {
@@ -91,7 +93,10 @@ export default function ContactForm() {
           {/* Name */}
           <div>
             <label htmlFor="contact-name" className={labelClass}>
-              Нэр <span className="text-ember" aria-hidden="true">*</span>
+              Нэр{" "}
+              <span className="text-ember" aria-hidden="true">
+                *
+              </span>
               <span className="sr-only">(шаардлагатай)</span>
             </label>
             <input
@@ -110,7 +115,10 @@ export default function ContactForm() {
           {/* Email */}
           <div>
             <label htmlFor="contact-email" className={labelClass}>
-              Имэйл <span className="text-ember" aria-hidden="true">*</span>
+              Имэйл{" "}
+              <span className="text-ember" aria-hidden="true">
+                *
+              </span>
               <span className="sr-only">(шаардлагатай)</span>
             </label>
             <input
@@ -146,7 +154,10 @@ export default function ContactForm() {
           {/* Message */}
           <div>
             <label htmlFor="contact-message" className={labelClass}>
-              Мессеж <span className="text-ember" aria-hidden="true">*</span>
+              Мессеж{" "}
+              <span className="text-ember" aria-hidden="true">
+                *
+              </span>
               <span className="sr-only">(шаардлагатай)</span>
             </label>
             <textarea
@@ -195,10 +206,6 @@ export default function ContactForm() {
               "Илгээх"
             )}
           </button>
-
-          <p className="text-xs text-bark/40 text-center font-body">
-            Таны мэдээлэл хамгаалагдана
-          </p>
         </form>
       )}
     </div>

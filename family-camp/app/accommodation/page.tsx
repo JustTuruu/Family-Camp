@@ -104,33 +104,38 @@ export default function AccommodationPage() {
   return (
     <div>
       {/* Page hero */}
-      <header className="relative h-64 md:h-96 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1920&q=80"
-          alt="Family Camp байрлалын ерөнхий харагдах байдал"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-bark/55" aria-hidden="true" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-sand/70 text-xs tracking-widest uppercase mb-3 font-body"
-          >
-            Family Camp
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-6xl font-bold text-cream"
-          >
-            Байрлал
-          </motion.h1>
+      <header className="relative w-full pt-16 bg-bark overflow-hidden">
+        {/* Image — full aspect ratio so nothing gets cropped */}
+        <div className="relative w-full" style={{ aspectRatio: "1448/1086" }}>
+          <Image
+            src="/images/sambar.png"
+            alt="Хялганат тосгоны орц — Булган аймаг"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Bottom gradient for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-bark via-bark/20 to-transparent" aria-hidden="true" />
+          {/* Title overlaid at the bottom of the image */}
+          <div className="absolute bottom-0 left-0 right-0 text-center px-4 pb-10 md:pb-16">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-sand/60 text-xs tracking-widest uppercase mb-3 font-body"
+            >
+              Family Camp
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display text-4xl md:text-6xl font-bold text-cream"
+            >
+              Байрлал
+            </motion.h1>
+          </div>
         </div>
       </header>
 
@@ -197,7 +202,7 @@ export default function AccommodationPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <h3 className="font-display text-xl font-semibold text-bark mb-5">
-                  Хэрэгсэл
+                  Багтаасан үйлчилгээ
                 </h3>
                 <AmenitiesGrid amenities={accommodation.amenities} />
 

@@ -35,10 +35,6 @@ export default function LocationSection() {
               бэлэглэнэ. Энд ирэх бүр та өдөр тутмын амьдралынхаа ачааг тайлж,
               цаг хугацаа зогссон мэт тайвшрах боломжтой.
             </p>
-            <p className="text-bark/50 text-sm leading-relaxed mb-10 italic font-body">
-              Nestled in {SITE.village}, {SITE.province} — surrounded by ancient
-              forests, winding rivers, and open steppe.
-            </p>
 
             {/* Stat pills */}
             <div className="flex flex-wrap gap-3">
@@ -72,8 +68,8 @@ export default function LocationSection() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-bark/20">
               <Image
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
-                alt="Монголын ойн гол горхины үзэмж"
+                src="/images/1.png"
+                alt="Хылганат нутгийн муруй голын агаараас харсан үзэмж"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
