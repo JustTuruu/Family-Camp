@@ -123,7 +123,7 @@ export default function AccommodationPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-sand/60 text-xs tracking-widest uppercase mb-3 font-body"
+              className="eyebrow text-sand/65 justify-center mb-4"
             >
               Family Camp
             </motion.p>
@@ -131,7 +131,7 @@ export default function AccommodationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl md:text-6xl font-bold text-cream"
+              className="font-display text-4xl md:text-6xl font-semibold text-cream"
             >
               Байрлал
             </motion.h1>

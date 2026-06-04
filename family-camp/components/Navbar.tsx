@@ -38,8 +38,8 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const navBg = scrolled
-    ? "bg-bark/95 backdrop-blur-md shadow-lg shadow-bark/20"
-    : "bg-transparent";
+    ? "bg-bark/95 backdrop-blur-md shadow-lg shadow-bark/20 border-b border-sand/10"
+    : "bg-gradient-to-b from-bark/40 to-transparent";
 
   return (
     <>
@@ -60,8 +60,16 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-display text-xl md:text-2xl font-semibold text-sand hover:text-cream transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
+              className="group flex items-center gap-2.5 font-display text-xl md:text-2xl font-semibold text-sand hover:text-cream transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
             >
+              <span
+                aria-hidden="true"
+                className="w-7 h-7 rounded-full bg-ember/15 border border-ember/40 flex items-center justify-center text-ember-glow transition-transform duration-300 group-hover:rotate-12"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5" />
+                </svg>
+              </span>
               Family Camp
             </Link>
 

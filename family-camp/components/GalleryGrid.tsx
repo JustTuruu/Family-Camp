@@ -27,13 +27,20 @@ function StripGrid({ images }: { images: readonly GalleryImage[] }) {
           className="flex items-end justify-between mb-10"
         >
           <div>
-            <p className="text-sand/50 text-sm font-medium tracking-wider uppercase mb-3 font-body">
-              Галерей
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-sand">
+            <p className="eyebrow text-sand/55 mb-4">Галерей</p>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-sand">
               Хурдан харц
             </h2>
           </div>
+          <Link
+            href="/gallery"
+            className="hidden md:inline-flex link-underline text-sand/70 hover:text-sand text-sm font-medium font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
+          >
+            Бүх зургийг үзэх
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </Link>
         </motion.div>
 
         {/* Scrollable strip */}
@@ -65,17 +72,17 @@ function StripGrid({ images }: { images: readonly GalleryImage[] }) {
           </div>
         </div>
 
-        {/* Link to gallery */}
+        {/* Mobile link to gallery */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 text-right"
+          className="mt-8 text-center md:hidden"
         >
           <Link
             href="/gallery"
-            className="text-ember font-medium hover:text-ember/70 transition-colors inline-flex items-center gap-2 font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
+            className="text-ember font-medium hover:text-ember-glow transition-colors inline-flex items-center gap-2 font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
           >
             Бүх зургийг үзэх →
           </Link>

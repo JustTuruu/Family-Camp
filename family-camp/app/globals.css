@@ -2,10 +2,15 @@
 
 @theme {
   --color-forest: #2D4A35;
+  --color-forest-deep: #1E3324;
   --color-sand: #E8D5B0;
+  --color-sand-soft: #F1E4C8;
   --color-ember: #C4622D;
+  --color-ember-glow: #E08851;
   --color-cream: #FAF6EE;
+  --color-cream-warm: #F5EDDC;
   --color-bark: #3D2B1F;
+  --color-mist: #EFE7D6;
   --font-display: var(--font-playfair);
   --font-body: var(--font-dm-sans);
 }
@@ -20,10 +25,17 @@ body {
   color: #3D2B1F;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background-color: rgba(196, 98, 45, 0.25);
+  color: #3D2B1F;
 }
 
 /* Hide scrollbar but keep functionality */
@@ -35,6 +47,49 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+/* Reusable eyebrow label with a leading rule */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.55;
+}
+
+/* Animated underline link */
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
 /* Grain texture overlay */
 body::before {
   content: "";
@@ -42,7 +97,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.025;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
