@@ -7,7 +7,6 @@ const INFO_ITEMS = [
   {
     label: "Хаяг",
     value: SITE.address,
-    subValue: "Монгол Улс",
     icon: (
       <svg
         className="w-5 h-5"
@@ -33,7 +32,6 @@ const INFO_ITEMS = [
   {
     label: "Зам",
     value: SITE.distanceFromUB,
-    subValue: "5–6 цагийн зам",
     icon: (
       <svg
         className="w-5 h-5"
@@ -53,7 +51,7 @@ const INFO_ITEMS = [
   },
   {
     label: "Улирал",
-    value: "Нээлттэй цаг",
+    value: "Нээлттэй үе",
     subValue: "5-р сараас 10-р сар хүртэл",
     icon: (
       <svg

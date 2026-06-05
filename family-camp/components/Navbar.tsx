@@ -41,6 +41,22 @@ export default function Navbar() {
     ? "bg-bark/95 backdrop-blur-md shadow-lg shadow-bark/20 border-b border-sand/10"
     : "bg-gradient-to-b from-bark/40 to-transparent";
 
+  const handleNavClick = (
+    href: string,
+    e: React.MouseEvent<HTMLAnchorElement>,
+  ) => {
+    if (!href.startsWith("/#")) return;
+    const id = href.slice(2);
+    if (pathname === "/") {
+      e.preventDefault();
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setMobileOpen(false);
+    }
+  };
+
   return (
     <>
       {/* Skip link */}
@@ -87,6 +103,7 @@ export default function Navbar() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={(e) => handleNavClick(link.href, e)}
                       className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 group rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
                         isActive
                           ? "text-cream"
@@ -205,6 +222,7 @@ export default function Navbar() {
                       >
                         <Link
                           href={link.href}
+                          onClick={(e) => handleNavClick(link.href, e)}
                           className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
                             isActive
                               ? "bg-forest text-cream"
