@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "**.fbcdn.net",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.popsci.com",
+        pathname: "/**",
+      },
     ],
   },
 };

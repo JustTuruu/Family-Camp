@@ -14,9 +14,8 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "Нүүр", href: "/" },
-  { label: "Байрлал", href: "/accommodation" },
-  { label: "Галерей", href: "/gallery" },
-  { label: "Холбоо барих", href: "/contact" },
+  { label: "Мэдээлэл", href: "/#accommodation" },
+  { label: "Зураг", href: "/gallery" },
 ] as const;
 
 export const ACCOMMODATIONS = [
@@ -26,7 +25,6 @@ export const ACCOMMODATIONS = [
     nameEn: "Mongolian yurt",
     description:
       "Уламжлалт монгол архитектурт суурилсан дугуй гэрт та байгалийн материалаар хийгдсэн тав тухтай унтлагын өрөөтэй байна.",
-    capacity: "4–6 хүн",
     image: "/images/Ger/ger1.png",
     images: ["/images/Ger/ger1.png", "/images/Ger/ger2.png", "/images/2.png"],
     amenities: [
@@ -41,14 +39,12 @@ export const ACCOMMODATIONS = [
       perNight2Plus: 100000,
       weekend: 155000,
     },
-    tags: ["4–6 хүн", "Унтлагын хэрэгсэл"],
   },
   {
     id: "shovgor",
     name: "Шовгор",
     nameEn: "Wooden house",
 
-    capacity: "2–4 хүн",
     image:
       "https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?w=800&q=80",
     images: [
@@ -66,97 +62,116 @@ export const ACCOMMODATIONS = [
       perDay: 250000,
       perNight: 250000,
       perNight2Plus: 230000,
-      weekend: 270000,
+      weekend: 450000,
     },
     tags: ["2-4 хүн", "2 хүний ор"],
   },
 ] as const;
+
+export const GALLERY_CATEGORIES = [
+  { id: "shovgor", label: "Шовгор" },
+  { id: "ger", label: "Гэр" },
+  { id: "baigali", label: "Байгаль" },
+] as const;
+
+export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number]["id"];
 
 export const GALLERY_IMAGES = [
   {
     src: "/images/Ger/ger1.png",
     alt: "Family Camp-ийн монгол гэрүүд — уулын ногоон нутагт",
     aspect: "4/3",
+    category: "ger",
   },
   {
     src: "/images/Ger/ger2.png",
     alt: "Монгол гэрийн дотоод тохижилт — ор, пийш, уламжлалт бүтэц",
     aspect: "3/4",
+    category: "ger",
   },
   {
     src: "/images/1.png",
     alt: "Хялганат нутгийн муруй голын агаараас харсан үзэмж",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "/images/2.png",
     alt: "Булган аймгийн тал хээр, уул ба ойн агаараас харсан үзэмж",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "/images/3.png",
     alt: "Хялганат нутгийн гол, гүүрийн агаараас харсан үзэмж",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
     alt: "Өндөр уулын хажуугийн үзэмж",
     aspect: "3/4",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80",
     alt: "Алтан нарны туяа хөндийд",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80",
     alt: "Ногоон ойн агаараас харсан дүр",
     aspect: "3/4",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
     alt: "Ойн гэрэл мод дунд",
     aspect: "4/5",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1482192505345-5852b57a21c0?w=600&q=80",
-    alt: "Манан бүрхсэн ой",
-    aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80",
     alt: "Шөнийн тэнгэр дор гал",
     aspect: "3/4",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80",
     alt: "Цасан оргилын шөнийн манлай",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
-    alt: "Байгалийн дунд майхан",
+    alt: "Байгалийн дунд шовгор майхан",
     aspect: "4/5",
+    category: "shovgor",
   },
   {
     src: "https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?w=600&q=80",
     alt: "Ойн шовгор майхан",
     aspect: "3/4",
+    category: "shovgor",
   },
   {
     src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
     alt: "Ойн дотор гол горхи",
     aspect: "4/3",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&q=80",
     alt: "Агаараас харсан байгалийн үзэмж",
     aspect: "4/5",
+    category: "baigali",
   },
   {
     src: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=600&q=80",
     alt: "Шөнийн гал",
     aspect: "4/3",
+    category: "baigali",
   },
 ] as const;
 

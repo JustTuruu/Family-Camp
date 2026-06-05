@@ -9,19 +9,6 @@ export default function ContactPage() {
       {/* Page header */}
       <header className="bg-bark pt-28 pb-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <nav aria-label="Breadcrumb" className="text-sand/50 text-sm mb-4 font-body">
-            <ol className="flex items-center gap-2">
-              <li>
-                <a href="/" className="hover:text-sand/80 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm">
-                  Нүүр
-                </a>
-              </li>
-              <li aria-hidden="true"><span className="mx-1">/</span></li>
-              <li>
-                <span className="text-sand/80" aria-current="page">Холбоо барих</span>
-              </li>
-            </ol>
-          </nav>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

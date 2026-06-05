@@ -103,39 +103,72 @@ function PricingTable({
 export default function AccommodationPage() {
   return (
     <div>
-      {/* Page hero */}
-      <header className="relative w-full pt-16 bg-bark overflow-hidden">
-        {/* Image — full aspect ratio so nothing gets cropped */}
-        <div className="relative w-full" style={{ aspectRatio: "1448/1086" }}>
-          <Image
-            src="/images/sambar.png"
-            alt="Хялганат тосгоны орц — Булган аймаг"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          {/* Bottom gradient for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-bark via-bark/20 to-transparent" aria-hidden="true" />
-          {/* Title overlaid at the bottom of the image */}
-          <div className="absolute bottom-0 left-0 right-0 text-center px-4 pb-10 md:pb-16">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="eyebrow text-sand/65 justify-center mb-4"
+      {/* Page header */}
+      <header className="relative bg-bark pt-28 pb-16 md:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Ambient glow */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-forest/25 blur-3xl"
+        />
+        <div className="relative max-w-5xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-4xl md:text-6xl font-semibold text-cream mb-5"
+          >
+            Мэдээлэл
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sand/70 max-w-xl mx-auto font-body mb-8"
+          >
+            Уламжлалт Монгол гэр, шовгор майхан — таны амралтад зориулсан хоёр
+            сонголт.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-ember hover:bg-ember-glow text-cream font-medium rounded-full px-7 py-3.5 text-sm transition-all duration-300 shadow-lg shadow-ember/30 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
             >
-              Family Camp
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl md:text-6xl font-semibold text-cream"
-            >
-              Байрлал
-            </motion.h1>
-          </div>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Холбогдох
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12h14M13 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </header>
 
@@ -181,9 +214,6 @@ export default function AccommodationPage() {
                     <h2 className="font-display text-3xl md:text-4xl font-bold text-bark mb-2">
                       {accommodation.name}
                     </h2>
-                    <p className="text-bark/60 font-body">
-                      👥 {accommodation.capacity}
-                    </p>
                   </div>
                   <div className="flex-shrink-0">
                     <span className="bg-forest text-cream text-sm font-medium px-4 py-2 rounded-full font-body">

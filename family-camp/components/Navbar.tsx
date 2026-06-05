@@ -60,6 +60,12 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
               className="group flex items-center gap-2.5 font-display text-xl md:text-2xl font-semibold text-sand hover:text-cream transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
             >
               <span

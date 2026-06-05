@@ -3,22 +3,30 @@
 import { motion } from "framer-motion";
 import { SITE } from "@/lib/constants";
 
-const landmarks = [
-  "Улаанбаатараас А4 чиглэлийн замаар хөдлөнө",
-  "Булган аймгийн төвөөс 45 км зайтай",
-  "Хялганат голын эрэгт байрлана",
-  "Бөмбөгөр ногоон ойн дунд",
-];
-
 const INFO_ITEMS = [
   {
     label: "Хаяг",
     value: SITE.address,
     subValue: "Монгол Улс",
     icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        />
       </svg>
     ),
   },
@@ -27,8 +35,19 @@ const INFO_ITEMS = [
     value: SITE.distanceFromUB,
     subValue: "5–6 цагийн зам",
     icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+        />
       </svg>
     ),
   },
@@ -37,8 +56,19 @@ const INFO_ITEMS = [
     value: "Нээлттэй цаг",
     subValue: "5-р сараас 10-р сар хүртэл",
     icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
   },
@@ -64,7 +94,7 @@ export default function MapSection() {
           >
             <p className="eyebrow text-sand/65 mb-5">Байршил</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-sand leading-[1.05] mb-8">
-              Та руу зам<span className="text-ember-glow">.</span>
+              <span className="text-ember-glow">Нэмэлт мэдээлэл</span>
             </h2>
 
             <address className="not-italic space-y-5 mb-9">
@@ -80,33 +110,16 @@ export default function MapSection() {
                     <p className="text-[0.65rem] uppercase tracking-widest text-sand/45 font-body mb-0.5">
                       {item.label}
                     </p>
-                    <p className="text-sand font-medium font-body">{item.value}</p>
-                    <p className="text-sand/55 text-sm font-body">{item.subValue}</p>
+                    <p className="text-sand font-medium font-body">
+                      {item.value}
+                    </p>
+                    <p className="text-sand/55 text-sm font-body">
+                      {item.subValue}
+                    </p>
                   </div>
                 </div>
               ))}
             </address>
-
-            {/* Landmarks list */}
-            <div className="border-t border-sand/15 pt-7">
-              <p className="text-[0.65rem] uppercase tracking-widest text-sand/45 mb-4 font-body">
-                Чиглэл
-              </p>
-              <ul className="space-y-2.5">
-                {landmarks.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-sm text-sand/75 font-body"
-                  >
-                    <span
-                      className="w-1.5 h-1.5 rounded-full bg-ember flex-shrink-0 mt-2"
-                      aria-hidden="true"
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
 
           {/* Right: map embed */}
@@ -119,7 +132,7 @@ export default function MapSection() {
           >
             <div className="relative bg-cream/5 border border-sand/30 rounded-3xl overflow-hidden h-[420px] md:h-[520px] shadow-2xl shadow-bark/40">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d200000!2d${SITE.coordinates.lng}!3d${SITE.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1smn!2smn!4v1699000000000`}
+                src={`https://maps.google.com/maps?q=${SITE.coordinates.lat},${SITE.coordinates.lng}(Family+Camp)&z=8&hl=mn&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -131,7 +144,8 @@ export default function MapSection() {
             </div>
             {/* Floating coord chip */}
             <div className="absolute -bottom-4 right-6 bg-bark text-cream rounded-full px-4 py-2 shadow-lg shadow-bark/40 border border-sand/15 text-xs font-body tabular-nums">
-              {SITE.coordinates.lat.toFixed(4)}°N · {SITE.coordinates.lng.toFixed(4)}°E
+              {SITE.coordinates.lat.toFixed(4)}°N ·{" "}
+              {SITE.coordinates.lng.toFixed(4)}°E
             </div>
           </motion.div>
         </div>

@@ -30,13 +30,6 @@ const ICON_PROPS = {
   "aria-hidden": true,
 };
 
-const NatureIcon = (
-  <svg {...ICON_PROPS}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4 0-7-3-7-7 0-3 2-5 4-6-1-3 1-6 3-6 3 0 4 3 3 6 2 1 4 3 4 6 0 4-3 7-7 7z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-9" />
-  </svg>
-);
-
 const GerIcon = (
   <svg {...ICON_PROPS}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5M12 3v4" />
@@ -48,13 +41,6 @@ const FamilyIcon = (
     <circle cx="9" cy="8" r="3" />
     <circle cx="17" cy="9" r="2.5" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.2 1.8-4 3.5-4S21 17.8 21 20" />
-  </svg>
-);
-
-const StarIcon = (
-  <svg {...ICON_PROPS}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17 4l.7 1.6L19.3 6.3 17.7 7l-.7 1.6L16.3 7l-1.6-.7L16.3 5.6 17 4z" />
   </svg>
 );
 
@@ -135,59 +121,40 @@ export default function WhyChooseUs() {
             </div>
           </motion.article>
 
-          {/* Tall — Одтой тэнгэр (deep night sky) */}
+          {/* Tall — Одтой тэнгэр (real night sky photo) */}
           <motion.article
             variants={cardVariants}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="relative lg:row-span-2 rounded-3xl overflow-hidden group min-h-[320px] lg:min-h-0 ring-1 ring-sand/15"
-            style={{
-              background:
-                "radial-gradient(ellipse at top, #1a2a44 0%, #0a1424 50%, #050a16 100%)",
-            }}
+            className="relative lg:row-span-2 rounded-3xl overflow-hidden group min-h-[320px] lg:min-h-0 ring-1 ring-sand/20"
           >
-            {/* Stars */}
-            <div aria-hidden="true" className="absolute inset-0">
-              <span className="absolute top-[10%] left-[18%] w-1 h-1 rounded-full bg-cream shadow-[0_0_6px_2px_rgba(250,246,238,0.5)]" />
-              <span className="absolute top-[14%] right-[22%] w-1.5 h-1.5 rounded-full bg-cream/95 shadow-[0_0_8px_2px_rgba(250,246,238,0.6)]" />
-              <span className="absolute top-[26%] left-[55%] w-0.5 h-0.5 rounded-full bg-cream/80" />
-              <span className="absolute top-[38%] left-[12%] w-1 h-1 rounded-full bg-cream/85 shadow-[0_0_5px_1px_rgba(250,246,238,0.4)]" />
-              <span className="absolute top-[32%] right-[34%] w-0.5 h-0.5 rounded-full bg-cream/70" />
-              <span className="absolute top-[50%] right-[18%] w-1 h-1 rounded-full bg-cream/85 shadow-[0_0_5px_1px_rgba(250,246,238,0.4)]" />
-              <span className="absolute top-[6%] right-[45%] w-0.5 h-0.5 rounded-full bg-cream/75" />
-              <span className="absolute top-[20%] left-[38%] w-0.5 h-0.5 rounded-full bg-cream/60" />
-              <span className="absolute top-[46%] left-[30%] w-0.5 h-0.5 rounded-full bg-cream/55" />
-              <span className="absolute top-[58%] left-[60%] w-0.5 h-0.5 rounded-full bg-cream/65" />
-              <span className="absolute top-[8%] left-[70%] w-0.5 h-0.5 rounded-full bg-cream/60" />
-              <span className="absolute top-[44%] right-[8%] w-0.5 h-0.5 rounded-full bg-cream/55" />
-            </div>
-            {/* Moon glow */}
-            <div
-              aria-hidden="true"
-              className="absolute -top-16 -right-10 w-48 h-48 rounded-full bg-ember-glow/25 blur-3xl"
+            <Image
+              src="https://www.popsci.com/wp-content/uploads/2021/04/16/tyler-rutherford-Uacqp0cIyLc-unsplash-3.jpg?quality=85&w=2048"
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover transition-transform duration-[1.2s] group-hover:scale-110"
             />
+            {/* Bottom-only gradient for text legibility */}
             <div
               aria-hidden="true"
-              className="absolute top-12 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-cream/90 to-cream/40 blur-[2px] opacity-70"
+              className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/15"
             />
 
             {/* Tag pill */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 bg-cream/10 backdrop-blur-md border border-cream/20 rounded-full pl-2 pr-4 py-1.5">
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-cream/15 backdrop-blur-md border border-cream/25 rounded-full pl-2 pr-4 py-1.5">
               <span className="w-6 h-6 rounded-full bg-ember/90 text-cream flex items-center justify-center text-[0.6rem] font-medium font-body">
                 04
               </span>
-              <span className="text-cream/85 text-xs uppercase tracking-widest font-body">
+              <span className="text-cream text-xs uppercase tracking-widest font-body">
                 Тэнгэр
               </span>
             </div>
 
             <div className="relative h-full flex flex-col justify-end p-7 md:p-8 text-cream">
-              <div className="w-12 h-12 rounded-xl bg-cream/10 border border-cream/20 text-ember-glow flex items-center justify-center mb-5 backdrop-blur-sm">
-                {StarIcon}
-              </div>
               <h3 className="font-display text-2xl font-semibold mb-3 leading-tight">
                 Одтой шөнийн тэнгэр
               </h3>
-              <p className="text-cream/70 text-sm leading-relaxed font-body">
+              <p className="text-cream/85 text-sm leading-relaxed font-body">
                 Гэрлийн бохирдолгүй, тэнгэр дүүрэн од анивчих газар.
               </p>
             </div>

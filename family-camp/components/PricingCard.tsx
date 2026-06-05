@@ -81,13 +81,11 @@ export default function PricingCard() {
                 label: "1 шөнө",
                 price: `₮${plan.pricing.perNight.toLocaleString()}`,
                 highlight: true,
-                note: "шөнө бүр",
               },
               {
                 label: "2+ шөнө",
                 price: `₮${plan.pricing.perNight2Plus.toLocaleString()}`,
                 highlight: false,
-                note: "шөнө бүр",
               },
             ];
             const isPopular = plan.id === POPULAR_ID;
@@ -157,9 +155,7 @@ export default function PricingCard() {
                           className={`block text-[0.65rem] uppercase tracking-widest font-body ${
                             tier.highlight ? "text-cream/70" : "text-bark/45"
                           }`}
-                        >
-                          / {tier.note}
-                        </span>
+                        ></span>
                       </div>
                     </div>
                   ))}

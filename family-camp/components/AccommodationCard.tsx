@@ -5,6 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ACCOMMODATIONS } from "@/lib/constants";
 
+const INCLUDES: Record<string, string[]> = {
+  ger: ["Унтлагын хэрэгсэл", "Дулааны систем", "Үйлчлэгч"],
+  shovgor: ["Нойрны уут", "Гэрэл", "Цахилгаан"],
+};
+
 interface AccommodationCardProps {
   featured?: boolean;
 }
@@ -13,7 +18,10 @@ export default function AccommodationCard({
   featured,
 }: AccommodationCardProps) {
   return (
-    <section className="relative bg-cream-warm py-24 md:py-32 overflow-hidden">
+    <section
+      id="accommodation"
+      className="relative bg-cream-warm py-24 md:py-32 overflow-hidden scroll-mt-20"
+    >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
@@ -28,33 +36,28 @@ export default function AccommodationCard({
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-bark max-w-xl">
               Мэдээлэл
             </h2>
+            <p className="text-bark/60 font-body max-w-md mt-4">
+              Сонгосон багц чинь л төлөх дүн. Нэмэлт хураамжгүй.
+            </p>
           </div>
-          {/* <Link
-            href="/accommodation"
-            className="link-underline text-bark/70 hover:text-bark text-sm font-medium font-body self-start md:self-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
-          >
-            Бүх байрлал
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.8}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 12h14M13 5l7 7-7 7"
-              />
-            </svg>
-          </Link> */}
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-10">
           {ACCOMMODATIONS.map((item, index) => {
             const isFeatured = featured && index === 0;
+            const tiers = [
+              {
+                label: "1 шөнө",
+                price: `₮${item.pricing.perNight.toLocaleString()}`,
+                highlight: true,
+              },
+              {
+                label: "2+ шөнө",
+                price: `₮${item.pricing.perNight2Plus.toLocaleString()}`,
+                highlight: false,
+              },
+            ];
             return (
               <motion.article
                 key={item.id}
@@ -67,7 +70,7 @@ export default function AccommodationCard({
                   delay: index * 0.15,
                 }}
                 whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                className={`relative rounded-3xl overflow-hidden shadow-lg shadow-bark/10 group bg-white ${
+                className={`relative rounded-3xl overflow-hidden shadow-lg shadow-bark/10 group bg-white flex flex-col ${
                   isFeatured ? "ring-2 ring-ember/40" : "ring-1 ring-sand/60"
                 }`}
               >
@@ -80,30 +83,10 @@ export default function AccommodationCard({
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Bottom gradient for legibility of overlay chips */}
                   <div
                     className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bark/40 to-transparent"
                     aria-hidden="true"
                   />
-
-                  {/* Capacity chip */}
-                  <div className="absolute top-4 left-4 bg-cream/95 backdrop-blur-sm text-bark text-xs font-medium px-3 py-1.5 rounded-full font-body flex items-center gap-1.5 shadow-sm">
-                    <svg
-                      className="w-3.5 h-3.5 text-forest"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.8}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m12-12a4 4 0 11-8 0 4 4 0 018 0zm6 4a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    {item.capacity}
-                  </div>
 
                   {isFeatured && (
                     <div className="absolute top-4 right-4 bg-ember text-cream text-[0.65rem] font-medium uppercase tracking-widest px-3 py-1.5 rounded-full font-body shadow-md">
@@ -113,7 +96,7 @@ export default function AccommodationCard({
                 </div>
 
                 {/* Content */}
-                <div className="p-7 md:p-8">
+                <div className="p-7 md:p-8 flex flex-col flex-1">
                   <h3 className="font-display text-2xl font-semibold text-bark mb-2">
                     {item.name}
                   </h3>
@@ -121,32 +104,93 @@ export default function AccommodationCard({
                     {item.nameEn}
                   </p>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-7">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-sand/40 text-bark/70 text-xs px-3 py-1.5 rounded-full font-body"
+                  {/* Pricing tiers */}
+                  <div className="space-y-2.5 mb-3">
+                    {tiers.map((tier) => (
+                      <div
+                        key={tier.label}
+                        className={`flex items-center justify-between rounded-xl px-4 py-3 ${
+                          tier.highlight ? "bg-forest text-cream" : "bg-sand/25"
+                        }`}
                       >
-                        {tag}
-                      </span>
+                        <span
+                          className={`text-sm font-body ${
+                            tier.highlight ? "text-cream/90" : "text-bark/70"
+                          }`}
+                        >
+                          {tier.label}
+                        </span>
+                        <div className="text-right">
+                          <span
+                            className={`font-display font-semibold text-base ${
+                              tier.highlight ? "text-cream" : "text-bark"
+                            }`}
+                          >
+                            {tier.price}
+                          </span>
+                          <span
+                            className={`block text-[0.65rem] uppercase tracking-widest font-body ${
+                              tier.highlight ? "text-cream/70" : "text-bark/45"
+                            }`}
+                          ></span>
+                        </div>
+                      </div>
                     ))}
                   </div>
 
-                  {/* Price and CTA */}
-                  <div className="flex items-end justify-between pt-5 border-t border-sand/60">
+                  {/* Weekend package */}
+                  <div className="flex items-center justify-between bg-ember/10 border border-ember/20 rounded-xl px-4 py-3.5 mb-6">
                     <div>
-                      <p className="text-xs text-bark/45 uppercase tracking-widest font-body mb-0.5">
-                        Эхлэх үнэ
+                      <p className="text-sm font-medium text-bark font-body">
+                        Амралтын өдрийн багц
                       </p>
-                      <p className="font-display text-xl font-semibold text-bark">
-                        ₮{item.pricing.perDay.toLocaleString()}
-                        <span className="text-bark/45 text-sm font-body font-normal">
-                          {" "}
-                          / өдөр
-                        </span>
+                      <p className="text-xs text-bark/55 font-body mt-0.5">
+                        Бямба, Ням · 2 шөнө
                       </p>
                     </div>
+                    <span className="font-display font-semibold text-lg text-ember">
+                      ₮{item.pricing.weekend.toLocaleString()}
+                    </span>
+                  </div>
+
+                  {/* Includes */}
+                  <div className="border-t border-sand/60 pt-5 mb-6">
+                    <p className="text-[0.65rem] text-bark/45 uppercase tracking-widest mb-3 font-body">
+                      Багцад багтана
+                    </p>
+                    <ul className="space-y-2">
+                      {(INCLUDES[item.id] ?? []).map((entry) => (
+                        <li
+                          key={entry}
+                          className="flex items-center gap-2.5 text-sm text-bark/70 font-body"
+                        >
+                          <span
+                            className="w-4 h-4 rounded-full bg-forest/15 flex items-center justify-center flex-shrink-0"
+                            aria-hidden="true"
+                          >
+                            <svg
+                              className="w-2.5 h-2.5 text-forest"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={3}
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                          </span>
+                          {entry}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-auto pt-5 border-t border-sand/60 flex items-center justify-end">
                     <Link
                       href="/accommodation"
                       className="group/cta inline-flex items-center gap-1.5 text-ember font-medium text-sm hover:text-ember-glow transition-colors font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
@@ -173,6 +217,36 @@ export default function AccommodationCard({
             );
           })}
         </div>
+
+        {/* Booking CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 bg-forest hover:bg-forest-deep text-cream font-medium rounded-full px-9 py-4 text-base transition-all duration-300 shadow-lg shadow-forest/30 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+          >
+            Захиалга өгөх
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 12h14M13 5l7 7-7 7"
+              />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
