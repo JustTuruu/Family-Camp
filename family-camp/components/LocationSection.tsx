@@ -27,7 +27,7 @@ export default function LocationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="eyebrow text-ember mb-5">Бидний тухай</p>
+            <p className="eyebrow text-ember mb-5">Байршлын тухай</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-bark leading-[1.05] mb-6">
               Байгалийн тэвэрт,
               <br />
@@ -59,7 +59,11 @@ export default function LocationSection() {
                       strokeWidth={3}
                       aria-hidden="true"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </span>
                   {item}
@@ -106,7 +110,10 @@ export default function LocationSection() {
                 className="object-cover"
               />
               {/* Subtle frame */}
-              <div className="absolute inset-0 ring-1 ring-inset ring-cream/30 rounded-[2rem] pointer-events-none" aria-hidden="true" />
+              <div
+                className="absolute inset-0 ring-1 ring-inset ring-cream/30 rounded-[2rem] pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
 
             {/* Decorative shapes */}

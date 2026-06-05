@@ -23,7 +23,7 @@ export const ACCOMMODATIONS = [
   {
     id: "ger",
     name: "Монгол Гэр",
-    nameEn: "Mongolian Ger",
+    nameEn: "Mongolian yurt",
     description:
       "Уламжлалт монгол архитектурт суурилсан дугуй гэрт та байгалийн материалаар хийгдсэн тав тухтай унтлагын өрөөтэй байна.",
     capacity: "4–6 хүн",
@@ -41,12 +41,12 @@ export const ACCOMMODATIONS = [
       perNight2Plus: 100000,
       weekend: 155000,
     },
-    tags: ["4–6 хүн", "Дулааны систем", "Унтлагын хэрэгсэл"],
+    tags: ["4–6 хүн", "Унтлагын хэрэгсэл"],
   },
   {
     id: "shovgor",
     name: "Шовгор",
-    nameEn: "Shovgor Tipi",
+    nameEn: "Wooden house",
 
     capacity: "2–4 хүн",
     image:
@@ -63,12 +63,12 @@ export const ACCOMMODATIONS = [
       "Дэр, хөнжил, орны даавуу",
     ],
     pricing: {
-      perDay: 155000,
-      perNight: 145000,
-      perNight2Plus: 135000,
-      weekend: 175000,
+      perDay: 250000,
+      perNight: 250000,
+      perNight2Plus: 230000,
+      weekend: 270000,
     },
-    tags: ["3-4 хүн"],
+    tags: ["2-4 хүн", "2 хүний ор"],
   },
 ] as const;
 

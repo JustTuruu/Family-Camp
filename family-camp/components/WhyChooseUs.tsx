@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -20,12 +21,6 @@ const cardVariants = {
   },
 };
 
-type Feature = {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-};
-
 const ICON_PROPS = {
   className: "w-7 h-7",
   fill: "none" as const,
@@ -35,56 +30,45 @@ const ICON_PROPS = {
   "aria-hidden": true,
 };
 
-const FEATURES: Feature[] = [
-  {
-    title: "Цэвэр байгаль",
-    description: "Гэмтээгдээгүй монгол нутаг дэвсгэр, цэнгэг ой моднын агаар.",
-    icon: (
-      <svg {...ICON_PROPS}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4 0-7-3-7-7 0-3 2-5 4-6-1-3 1-6 3-6 3 0 4 3 3 6 2 1 4 3 4 6 0 4-3 7-7 7z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-9" />
-      </svg>
-    ),
-  },
-  {
-    title: "Жинхэнэ гэр буудал",
-    description: "Уламжлалт монгол гэр болон шовгор майхан, бодит туршлага.",
-    icon: (
-      <svg {...ICON_PROPS}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5M12 3v4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Гэр бүлд тохиромжтой",
-    description: "Бүх насны хүмүүст тохирсон, тайвшралтай орчин.",
-    icon: (
-      <svg {...ICON_PROPS}>
-        <circle cx="9" cy="8" r="3" />
-        <circle cx="17" cy="9" r="2.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.2 1.8-4 3.5-4S21 17.8 21 20" />
-      </svg>
-    ),
-  },
-  {
-    title: "Одтой тэнгэр",
-    description: "Гэрлийн бохирдолгүй, шөнийн тэнгэр од дүүрэн.",
-    icon: (
-      <svg {...ICON_PROPS}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 4l.7 1.6L19.3 6.3 17.7 7l-.7 1.6L16.3 7l-1.6-.7L16.3 5.6 17 4z" />
-      </svg>
-    ),
-  },
-];
+const NatureIcon = (
+  <svg {...ICON_PROPS}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4 0-7-3-7-7 0-3 2-5 4-6-1-3 1-6 3-6 3 0 4 3 3 6 2 1 4 3 4 6 0 4-3 7-7 7z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-9" />
+  </svg>
+);
+
+const GerIcon = (
+  <svg {...ICON_PROPS}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5M12 3v4" />
+  </svg>
+);
+
+const FamilyIcon = (
+  <svg {...ICON_PROPS}>
+    <circle cx="9" cy="8" r="3" />
+    <circle cx="17" cy="9" r="2.5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.2 1.8-4 3.5-4S21 17.8 21 20" />
+  </svg>
+);
+
+const StarIcon = (
+  <svg {...ICON_PROPS}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17 4l.7 1.6L19.3 6.3 17.7 7l-.7 1.6L16.3 7l-1.6-.7L16.3 5.6 17 4z" />
+  </svg>
+);
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative bg-forest py-24 md:py-32 overflow-hidden">
-      {/* Subtle radial highlight */}
+    <section className="relative bg-forest-deep py-24 md:py-32 overflow-hidden">
+      {/* Ambient radial glows */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(232,213,176,0.08)_0%,_transparent_60%)]"
+        className="absolute -top-32 left-1/4 w-[40rem] h-[40rem] rounded-full bg-forest/30 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-32 right-0 w-[30rem] h-[30rem] rounded-full bg-ember/10 blur-3xl"
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,52 +85,171 @@ export default function WhyChooseUs() {
             Яагаад Family Camp?
           </h2>
           <p className="text-sand/60 mt-5 font-body max-w-xl mx-auto">
-            Хотын чимээ шуугианаас ангид, байгальд бүрэн уусах хэдэн шалтгаан.
+            Хотын шуугианаас тусгаарлагдсан, байгальд бүрэн уусахуйц орчин.
           </p>
         </motion.div>
 
-        {/* Cards grid */}
+        {/* Bento grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:auto-rows-[240px]"
         >
-          {FEATURES.map((feature, i) => (
-            <motion.article
-              key={feature.title}
-              variants={cardVariants}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.25, ease: "easeOut" },
-              }}
-              className="relative bg-gradient-to-b from-forest-deep/60 to-forest-deep/30 border border-sand/15 rounded-2xl p-7 cursor-default backdrop-blur-sm overflow-hidden group"
-            >
-              {/* Hover sheen */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-
-              {/* Number */}
-              <span className="absolute top-5 right-6 font-display text-xs text-sand/30 tabular-nums">
-                0{i + 1}
+          {/* Featured — Цэвэр байгаль (wide with image) */}
+          <motion.article
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="relative lg:col-span-2 rounded-3xl overflow-hidden group min-h-[300px] lg:min-h-0 ring-1 ring-sand/20"
+          >
+            <Image
+              src="/images/1.png"
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 100vw, 66vw"
+              className="object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+            />
+            {/* Bottom-only gradient for text legibility */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-bark/95 via-bark/40 to-transparent"
+            />
+            {/* Tag pill */}
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-cream/15 backdrop-blur-md border border-cream/25 rounded-full pl-2 pr-4 py-1.5">
+              <span className="w-6 h-6 rounded-full bg-ember/90 text-cream flex items-center justify-center text-[0.6rem] font-medium font-body">
+                01
               </span>
+              <span className="text-cream text-xs uppercase tracking-widest font-body">
+                Байгаль
+              </span>
+            </div>
 
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-sand/10 border border-sand/20 text-sand flex items-center justify-center mb-6 group-hover:bg-ember/15 group-hover:border-ember/30 group-hover:text-ember-glow transition-colors duration-300">
-                {feature.icon}
-              </div>
-
-              <h3 className="font-display text-xl font-semibold text-sand mb-3">
-                {feature.title}
+            <div className="relative h-full flex flex-col justify-end p-7 md:p-9 text-cream">
+              <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3 max-w-md leading-tight">
+                Гэмтээгдээгүй цэвэр байгаль
               </h3>
-              <p className="text-sand/65 text-sm leading-relaxed font-body">
-                {feature.description}
+              <p className="text-cream/80 text-sm md:text-base leading-relaxed max-w-md font-body">
+                Хылганат голын эрэг, ногоон ой моднд хүрээлэгдсэн, тэнгэр цэлмэг өдрүүд.
               </p>
-            </motion.article>
-          ))}
+            </div>
+          </motion.article>
+
+          {/* Tall — Одтой тэнгэр (deep night sky) */}
+          <motion.article
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="relative lg:row-span-2 rounded-3xl overflow-hidden group min-h-[320px] lg:min-h-0 ring-1 ring-sand/15"
+            style={{
+              background:
+                "radial-gradient(ellipse at top, #1a2a44 0%, #0a1424 50%, #050a16 100%)",
+            }}
+          >
+            {/* Stars */}
+            <div aria-hidden="true" className="absolute inset-0">
+              <span className="absolute top-[10%] left-[18%] w-1 h-1 rounded-full bg-cream shadow-[0_0_6px_2px_rgba(250,246,238,0.5)]" />
+              <span className="absolute top-[14%] right-[22%] w-1.5 h-1.5 rounded-full bg-cream/95 shadow-[0_0_8px_2px_rgba(250,246,238,0.6)]" />
+              <span className="absolute top-[26%] left-[55%] w-0.5 h-0.5 rounded-full bg-cream/80" />
+              <span className="absolute top-[38%] left-[12%] w-1 h-1 rounded-full bg-cream/85 shadow-[0_0_5px_1px_rgba(250,246,238,0.4)]" />
+              <span className="absolute top-[32%] right-[34%] w-0.5 h-0.5 rounded-full bg-cream/70" />
+              <span className="absolute top-[50%] right-[18%] w-1 h-1 rounded-full bg-cream/85 shadow-[0_0_5px_1px_rgba(250,246,238,0.4)]" />
+              <span className="absolute top-[6%] right-[45%] w-0.5 h-0.5 rounded-full bg-cream/75" />
+              <span className="absolute top-[20%] left-[38%] w-0.5 h-0.5 rounded-full bg-cream/60" />
+              <span className="absolute top-[46%] left-[30%] w-0.5 h-0.5 rounded-full bg-cream/55" />
+              <span className="absolute top-[58%] left-[60%] w-0.5 h-0.5 rounded-full bg-cream/65" />
+              <span className="absolute top-[8%] left-[70%] w-0.5 h-0.5 rounded-full bg-cream/60" />
+              <span className="absolute top-[44%] right-[8%] w-0.5 h-0.5 rounded-full bg-cream/55" />
+            </div>
+            {/* Moon glow */}
+            <div
+              aria-hidden="true"
+              className="absolute -top-16 -right-10 w-48 h-48 rounded-full bg-ember-glow/25 blur-3xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute top-12 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-cream/90 to-cream/40 blur-[2px] opacity-70"
+            />
+
+            {/* Tag pill */}
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-cream/10 backdrop-blur-md border border-cream/20 rounded-full pl-2 pr-4 py-1.5">
+              <span className="w-6 h-6 rounded-full bg-ember/90 text-cream flex items-center justify-center text-[0.6rem] font-medium font-body">
+                04
+              </span>
+              <span className="text-cream/85 text-xs uppercase tracking-widest font-body">
+                Тэнгэр
+              </span>
+            </div>
+
+            <div className="relative h-full flex flex-col justify-end p-7 md:p-8 text-cream">
+              <div className="w-12 h-12 rounded-xl bg-cream/10 border border-cream/20 text-ember-glow flex items-center justify-center mb-5 backdrop-blur-sm">
+                {StarIcon}
+              </div>
+              <h3 className="font-display text-2xl font-semibold mb-3 leading-tight">
+                Одтой шөнийн тэнгэр
+              </h3>
+              <p className="text-cream/70 text-sm leading-relaxed font-body">
+                Гэрлийн бохирдолгүй, тэнгэр дүүрэн од анивчих газар.
+              </p>
+            </div>
+          </motion.article>
+
+          {/* Small — Уламжлалт Монгол гэр (warm sand) */}
+          <motion.article
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="relative rounded-3xl overflow-hidden group p-7 ring-1 ring-sand/40"
+            style={{
+              background:
+                "linear-gradient(160deg, #F5EDDC 0%, #E8D5B0 100%)",
+            }}
+          >
+            {/* Tag pill */}
+            <div className="absolute top-6 right-6 flex items-center gap-2 bg-bark/8 border border-bark/15 rounded-full pl-2 pr-3 py-1">
+              <span className="w-5 h-5 rounded-full bg-bark text-cream flex items-center justify-center text-[0.55rem] font-medium font-body">
+                02
+              </span>
+              <span className="text-bark/70 text-[0.6rem] uppercase tracking-widest font-body">
+                Гэр
+              </span>
+            </div>
+
+            <div className="w-12 h-12 rounded-xl bg-forest/15 border border-forest/25 text-forest flex items-center justify-center mb-5 group-hover:bg-ember/15 group-hover:border-ember/40 group-hover:text-ember transition-colors duration-300">
+              {GerIcon}
+            </div>
+            <h3 className="font-display text-xl font-semibold text-bark mb-3 leading-tight">
+              Уламжлалт Монгол гэр
+            </h3>
+            <p className="text-bark/65 text-sm leading-relaxed font-body">
+              Эх орны соёлд багтсан, тав тухтай байрлал.
+            </p>
+          </motion.article>
+
+          {/* Small — Гэр бүлд таатай (cream) */}
+          <motion.article
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="relative rounded-3xl overflow-hidden group p-7 bg-cream ring-1 ring-sand/40"
+          >
+            {/* Tag pill */}
+            <div className="absolute top-6 right-6 flex items-center gap-2 bg-bark/8 border border-bark/15 rounded-full pl-2 pr-3 py-1">
+              <span className="w-5 h-5 rounded-full bg-bark text-cream flex items-center justify-center text-[0.55rem] font-medium font-body">
+                03
+              </span>
+              <span className="text-bark/70 text-[0.6rem] uppercase tracking-widest font-body">
+                Гэр бүл
+              </span>
+            </div>
+
+            <div className="w-12 h-12 rounded-xl bg-ember/15 border border-ember/30 text-ember flex items-center justify-center mb-5 group-hover:bg-ember group-hover:border-ember group-hover:text-cream transition-colors duration-300">
+              {FamilyIcon}
+            </div>
+            <h3 className="font-display text-xl font-semibold text-bark mb-3 leading-tight">
+              Гэр бүлд таатай
+            </h3>
+            <p className="text-bark/65 text-sm leading-relaxed font-body">
+              Хүүхэд, том хүн бүгдэд тохирсон амгалан орчин.
+            </p>
+          </motion.article>
         </motion.div>
       </div>
     </section>

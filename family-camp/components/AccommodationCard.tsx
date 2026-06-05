@@ -26,18 +26,29 @@ export default function AccommodationCard({
           <div>
             <p className="eyebrow text-ember mb-4">Байрлал</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-bark max-w-xl">
-              Хоёр төрлийн буудал, нэг л байгаль
+              Мэдээлэл
             </h2>
           </div>
-          <Link
+          {/* <Link
             href="/accommodation"
             className="link-underline text-bark/70 hover:text-bark text-sm font-medium font-body self-start md:self-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
           >
             Бүх байрлал
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 12h14M13 5l7 7-7 7"
+              />
             </svg>
-          </Link>
+          </Link> */}
         </motion.div>
 
         {/* Cards */}
@@ -70,12 +81,26 @@ export default function AccommodationCard({
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Bottom gradient for legibility of overlay chips */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bark/40 to-transparent" aria-hidden="true" />
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bark/40 to-transparent"
+                    aria-hidden="true"
+                  />
 
                   {/* Capacity chip */}
                   <div className="absolute top-4 left-4 bg-cream/95 backdrop-blur-sm text-bark text-xs font-medium px-3 py-1.5 rounded-full font-body flex items-center gap-1.5 shadow-sm">
-                    <svg className="w-3.5 h-3.5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m12-12a4 4 0 11-8 0 4 4 0 018 0zm6 4a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <svg
+                      className="w-3.5 h-3.5 text-forest"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m12-12a4 4 0 11-8 0 4 4 0 018 0zm6 4a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
                     </svg>
                     {item.capacity}
                   </div>
@@ -116,7 +141,10 @@ export default function AccommodationCard({
                       </p>
                       <p className="font-display text-xl font-semibold text-bark">
                         ₮{item.pricing.perDay.toLocaleString()}
-                        <span className="text-bark/45 text-sm font-body font-normal"> / өдөр</span>
+                        <span className="text-bark/45 text-sm font-body font-normal">
+                          {" "}
+                          / өдөр
+                        </span>
                       </p>
                     </div>
                     <Link
@@ -124,8 +152,19 @@ export default function AccommodationCard({
                       className="group/cta inline-flex items-center gap-1.5 text-ember font-medium text-sm hover:text-ember-glow transition-colors font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
                     >
                       Дэлгэрэнгүй
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </Link>
                   </div>

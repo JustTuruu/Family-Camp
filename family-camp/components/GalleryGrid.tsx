@@ -27,9 +27,8 @@ function StripGrid({ images }: { images: readonly GalleryImage[] }) {
           className="flex items-end justify-between mb-10"
         >
           <div>
-            <p className="eyebrow text-sand/55 mb-4">Галерей</p>
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-sand">
-              Хурдан харц
+              Зураг
             </h2>
           </div>
           <Link
@@ -37,14 +36,29 @@ function StripGrid({ images }: { images: readonly GalleryImage[] }) {
             className="hidden md:inline-flex link-underline text-sand/70 hover:text-sand text-sm font-medium font-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
           >
             Бүх зургийг үзэх
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 12h14M13 5l7 7-7 7"
+              />
             </svg>
           </Link>
         </motion.div>
 
         {/* Scrollable strip */}
-        <div className="overflow-x-auto scrollbar-hide" role="region" aria-label="Зургийн галерей">
+        <div
+          className="overflow-x-auto scrollbar-hide"
+          role="region"
+          aria-label="Зургийн цомог"
+        >
           <div className="flex gap-4 pb-2" style={{ width: "max-content" }}>
             {images.map((img, index) => (
               <motion.div
@@ -66,7 +80,10 @@ function StripGrid({ images }: { images: readonly GalleryImage[] }) {
                   sizes="300px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-bark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
+                <div
+                  className="absolute inset-0 bg-bark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-hidden="true"
+                />
               </motion.div>
             ))}
           </div>
@@ -103,18 +120,16 @@ function MasonryGrid({ images }: { images: readonly GalleryImage[] }) {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowRight" && lightboxIndex !== null) {
         setLightboxIndex((prev) =>
-          prev !== null ? (prev + 1) % images.length : null
+          prev !== null ? (prev + 1) % images.length : null,
         );
       }
       if (e.key === "ArrowLeft" && lightboxIndex !== null) {
         setLightboxIndex((prev) =>
-          prev !== null
-            ? (prev - 1 + images.length) % images.length
-            : null
+          prev !== null ? (prev - 1 + images.length) % images.length : null,
         );
       }
     },
-    [lightboxIndex, closeLightbox, images.length]
+    [lightboxIndex, closeLightbox, images.length],
   );
 
   useEffect(() => {
@@ -233,11 +248,10 @@ function MasonryGrid({ images }: { images: readonly GalleryImage[] }) {
               className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-sand/70 hover:text-sand transition-colors z-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
               onClick={(e) => {
                 e.stopPropagation();
-                setLightboxIndex(
-                  (prev) =>
-                    prev !== null
-                      ? (prev - 1 + images.length) % images.length
-                      : null
+                setLightboxIndex((prev) =>
+                  prev !== null
+                    ? (prev - 1 + images.length) % images.length
+                    : null,
                 );
               }}
               aria-label="Өмнөх зураг"
@@ -289,11 +303,8 @@ function MasonryGrid({ images }: { images: readonly GalleryImage[] }) {
               className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-sand/70 hover:text-sand transition-colors z-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
               onClick={(e) => {
                 e.stopPropagation();
-                setLightboxIndex(
-                  (prev) =>
-                    prev !== null
-                      ? (prev + 1) % images.length
-                      : null
+                setLightboxIndex((prev) =>
+                  prev !== null ? (prev + 1) % images.length : null,
                 );
               }}
               aria-label="Дараах зураг"
