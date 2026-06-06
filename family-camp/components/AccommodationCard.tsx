@@ -36,9 +36,6 @@ export default function AccommodationCard({
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-bark max-w-xl">
               Мэдээлэл
             </h2>
-            <p className="text-bark/60 font-body max-w-md mt-4">
-              Сонгосон багц чинь л төлөх дүн. Нэмэлт хураамжгүй.
-            </p>
           </div>
         </motion.div>
 

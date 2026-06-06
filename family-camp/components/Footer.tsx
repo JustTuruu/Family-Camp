@@ -71,8 +71,8 @@ export default function Footer() {
               {SITE.name}
             </Link>
             <p className="text-sand/65 text-sm leading-relaxed max-w-md">
-              Булган аймгийн {SITE.village}д байрлах {SITE.name} нь таньд
-              байгалийн цэвэр агаар, тайван амгалан байдлыг бэлэглэнэ.
+              Булганийн {SITE.village}д байрлах {SITE.name} нь таньд байгалийн
+              цэвэр агаар, тайван амгалан байдлыг бэлэглэнэ.
             </p>
 
             {/* Socials */}
