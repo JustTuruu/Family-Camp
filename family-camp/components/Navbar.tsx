@@ -88,11 +88,22 @@ export default function Navbar() {
                 aria-hidden="true"
                 className="w-7 h-7 rounded-full bg-ember/15 border border-ember/40 flex items-center justify-center text-ember-glow transition-transform duration-300 group-hover:rotate-12"
               >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5" />
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5"
+                  />
                 </svg>
               </span>
-              Family Camp
+              Aguit Camp
             </Link>
 
             {/* Desktop links */}
@@ -105,15 +116,15 @@ export default function Navbar() {
                       href={link.href}
                       onClick={(e) => handleNavClick(link.href, e)}
                       className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 group rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
-                        isActive
-                          ? "text-cream"
-                          : "text-sand/80 hover:text-sand"
+                        isActive ? "text-cream" : "text-sand/80 hover:text-sand"
                       }`}
                     >
                       {link.label}
                       <span
                         className={`absolute bottom-0 left-4 right-4 h-px bg-ember transition-transform duration-300 origin-left ${
-                          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                          isActive
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
                         }`}
                       />
                     </Link>
@@ -184,7 +195,7 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between px-6 h-16">
                 <span className="font-display text-xl text-sand font-semibold">
-                  Family Camp
+                  Aguit Camp
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}

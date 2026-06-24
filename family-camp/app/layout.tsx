@@ -18,18 +18,18 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Family Camp | Mongolian Glamping Retreat",
+  title: "Aguit Camp | Mongolian Glamping Retreat",
   description:
-    "Хялганат тосгонд байрлах Family Camp — Булган аймгийн байгалийн тэвэрт тайван амралт. Монгол гэр болон шовгор майхан. Nestled in Khylganat village, Bulgan Province, Mongolia.",
+    "Хялганат тосгонд байрлах Aguit Camp — Булган аймгийн байгалийн тэвэрт тайван амралт. Монгол гэр болон шовгор майхан. Nestled in Khylganat village, Bulgan Province, Mongolia.",
   keywords: [
-    "Family Camp",
+    "Aguit Camp",
     "Mongolia glamping",
     "Mongolian ger",
     "Khylganat",
     "Bulgan",
     "glamping",
     "природа",
-    "Family Camp Mongolia",
+    "Aguit Camp Mongolia",
   ],
 };
 

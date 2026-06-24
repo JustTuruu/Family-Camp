@@ -12,7 +12,7 @@ export default function GalleryPage() {
             Зураг
           </h1>
           <p className="text-sand/70 mt-3 font-body">
-            Family Camp-ийн үзэсгэлэнт байгаль ба байрлалуудыг харна уу
+            Aguit Camp-ийн үзэсгэлэнт байгаль ба байрлалуудыг харна уу
           </p>
         </div>
       </header>

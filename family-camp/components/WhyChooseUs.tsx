@@ -17,7 +17,10 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    },
   },
 };
 
@@ -32,7 +35,11 @@ const ICON_PROPS = {
 
 const GerIcon = (
   <svg {...ICON_PROPS}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5M12 3v4" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5M12 3v4"
+    />
   </svg>
 );
 
@@ -40,7 +47,11 @@ const FamilyIcon = (
   <svg {...ICON_PROPS}>
     <circle cx="9" cy="8" r="3" />
     <circle cx="17" cy="9" r="2.5" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.2 1.8-4 3.5-4S21 17.8 21 20" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.2 1.8-4 3.5-4S21 17.8 21 20"
+    />
   </svg>
 );
 
@@ -68,7 +79,7 @@ export default function WhyChooseUs() {
         >
           <p className="eyebrow text-sand/65 justify-center mb-4">Онцлог</p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-sand max-w-2xl mx-auto">
-            Яагаад Family Camp?
+            Яагаад Aguit Camp?
           </h2>
           <p className="text-sand/60 mt-5 font-body max-w-xl mx-auto">
             Хотын шуугианаас тусгаарлагдсан, байгальд бүрэн уусахуйц орчин.
@@ -116,7 +127,8 @@ export default function WhyChooseUs() {
                 Гэмтээгдээгүй цэвэр байгаль
               </h3>
               <p className="text-cream/80 text-sm md:text-base leading-relaxed max-w-md font-body">
-                Хылганат голын эрэг, ногоон ой моднд хүрээлэгдсэн, тэнгэр цэлмэг өдрүүд.
+                Хылганат голын эрэг, ногоон ой моднд хүрээлэгдсэн, тэнгэр цэлмэг
+                өдрүүд.
               </p>
             </div>
           </motion.article>
@@ -166,8 +178,7 @@ export default function WhyChooseUs() {
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
             className="relative rounded-3xl overflow-hidden group p-7 ring-1 ring-sand/40"
             style={{
-              background:
-                "linear-gradient(160deg, #F5EDDC 0%, #E8D5B0 100%)",
+              background: "linear-gradient(160deg, #F5EDDC 0%, #E8D5B0 100%)",
             }}
           >
             {/* Tag pill */}

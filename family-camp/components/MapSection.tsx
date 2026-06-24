@@ -137,7 +137,7 @@ export default function MapSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Family Camp байршил — Хялганат тосгон, Булган аймаг"
+                title="Aguit Camp байршил — Хялганат тосгон, Булган аймаг"
               />
             </div>
             {/* Floating coord chip */}

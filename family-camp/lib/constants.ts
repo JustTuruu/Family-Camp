@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Family Camp",
+  name: "Aguit Camp",
   tagline: "Байгалын сайхныг мэдрэх төгс газар",
   locationLabel: "Булган аймаг · Хялганат тосгон",
   province: "Булган аймаг",
@@ -79,7 +79,7 @@ export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number]["id"];
 export const GALLERY_IMAGES = [
   {
     src: "/images/Ger/ger1.png",
-    alt: "Family Camp-ийн монгол гэрүүд — уулын ногоон нутагт",
+    alt: "Aguit Camp-ийн монгол гэрүүд — уулын ногоон нутагт",
     aspect: "4/3",
     category: "ger",
   },
