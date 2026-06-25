@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
@@ -49,25 +50,14 @@ export default function Footer() {
               href="/"
               className="flex items-center gap-2.5 font-display text-2xl font-semibold text-cream mb-5"
             >
-              <span
+              <Image
+                src="/images/logo.jpeg"
+                alt=""
+                width={56}
+                height={56}
                 aria-hidden="true"
-                className="w-7 h-7 rounded-full bg-ember/15 border border-ember/40 flex items-center justify-center text-ember-glow"
-              >
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5"
-                  />
-                </svg>
-              </span>
+                className="w-14 h-14 rounded-full object-cover border border-ember/40"
+              />
               {SITE.name}
             </Link>
             <p className="text-sand/65 text-sm leading-relaxed max-w-md">

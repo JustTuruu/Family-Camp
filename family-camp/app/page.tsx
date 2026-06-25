@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import LocationSection from "@/components/LocationSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import AmenitiesSection from "@/components/AmenitiesSection";
 import AccommodationCard from "@/components/AccommodationCard";
 import GalleryGrid from "@/components/GalleryGrid";
 import MapSection from "@/components/MapSection";
@@ -11,7 +11,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <LocationSection />
-      <WhyChooseUs />
+      <AmenitiesSection />
       <AccommodationCard />
       <GalleryGrid variant="strip" images={GALLERY_IMAGES.slice(0, 6)} />
       <MapSection />

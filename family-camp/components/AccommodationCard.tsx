@@ -43,17 +43,31 @@ export default function AccommodationCard({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-10">
           {ACCOMMODATIONS.map((item, index) => {
             const isFeatured = featured && index === 0;
+            const pricing = item.pricing as {
+              perNight: number;
+              perNight2Plus: number;
+              perNight3Plus?: number;
+            };
             const tiers = [
               {
                 label: "1 шөнө",
-                price: `₮${item.pricing.perNight.toLocaleString()}`,
+                price: `₮${pricing.perNight.toLocaleString()}`,
                 highlight: true,
               },
               {
-                label: "2+ шөнө",
-                price: `₮${item.pricing.perNight2Plus.toLocaleString()}`,
+                label: pricing.perNight3Plus ? "2 шөнө" : "2+ шөнө",
+                price: `₮${pricing.perNight2Plus.toLocaleString()}`,
                 highlight: false,
               },
+              ...(pricing.perNight3Plus
+                ? [
+                    {
+                      label: "3+ шөнө",
+                      price: `₮${pricing.perNight3Plus.toLocaleString()}`,
+                      highlight: false,
+                    },
+                  ]
+                : []),
             ];
             return (
               <motion.article
@@ -135,23 +149,8 @@ export default function AccommodationCard({
                     ))}
                   </div>
 
-                  {/* Weekend package */}
-                  <div className="flex items-center justify-between bg-ember/10 border border-ember/20 rounded-xl px-4 py-3.5 mb-6">
-                    <div>
-                      <p className="text-sm font-medium text-bark font-body">
-                        Амралтын өдрийн багц
-                      </p>
-                      <p className="text-xs text-bark/55 font-body mt-0.5">
-                        Бямба, Ням · 2 шөнө
-                      </p>
-                    </div>
-                    <span className="font-display font-semibold text-lg text-ember">
-                      ₮{item.pricing.weekend.toLocaleString()}
-                    </span>
-                  </div>
-
                   {/* Includes */}
-                  <div className="border-t border-sand/60 pt-5 mb-6">
+                  <div className="border-t border-sand/60 pt-5 mb-6 mt-3">
                     <p className="text-[0.65rem] text-bark/45 uppercase tracking-widest mb-3 font-body">
                       Багцад багтана
                     </p>

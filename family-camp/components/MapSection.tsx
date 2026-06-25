@@ -137,7 +137,7 @@ export default function MapSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Aguit Camp байршил — Хялганат тосгон, Булган аймаг"
+                title="Aguta Camp байршил — Хялганат тосгон, Булган аймаг"
               />
             </div>
             {/* Floating coord chip */}

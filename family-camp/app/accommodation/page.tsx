@@ -174,19 +174,29 @@ export default function AccommodationPage() {
 
       {/* Accommodation sections */}
       {ACCOMMODATIONS.map((accommodation, index) => {
+        const pricing = accommodation.pricing as {
+          perDay: number;
+          perNight: number;
+          perNight2Plus: number;
+          perNight3Plus?: number;
+        };
         const pricingRows = [
           {
-            category: "Даваа-Пүрэв",
-            price: `₮${accommodation.pricing.perDay.toLocaleString()}`,
+            category: "1 шөнө",
+            price: `₮${pricing.perNight.toLocaleString()}`,
           },
           {
-            category: "Баасан-Ням",
-            price: `₮${accommodation.pricing.weekend.toLocaleString()}`,
+            category: pricing.perNight3Plus ? "2 шөнө" : "2-с дээш өдөр",
+            price: `₮${pricing.perNight2Plus.toLocaleString()}`,
           },
-          {
-            category: "2-с дээш өдөр",
-            price: `₮${accommodation.pricing.perNight2Plus.toLocaleString()}`,
-          },
+          ...(pricing.perNight3Plus
+            ? [
+                {
+                  category: "3+ шөнө",
+                  price: `₮${pricing.perNight3Plus.toLocaleString()}`,
+                },
+              ]
+            : []),
         ];
 
         const isEven = index % 2 === 0;

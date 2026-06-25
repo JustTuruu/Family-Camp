@@ -125,7 +125,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Эрдэнэтээс Aguit Camp хүртэлх зам"
+              title="Эрдэнэтээс Aguta Camp хүртэлх зам"
             />
           </div>
 

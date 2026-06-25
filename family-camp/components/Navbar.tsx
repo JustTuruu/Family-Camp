@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -84,26 +85,16 @@ export default function Navbar() {
               }}
               className="group flex items-center gap-2.5 font-display text-xl md:text-2xl font-semibold text-sand hover:text-cream transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember rounded-sm"
             >
-              <span
+              <Image
+                src="/images/logo.jpeg"
+                alt=""
+                width={56}
+                height={56}
+                priority
                 aria-hidden="true"
-                className="w-7 h-7 rounded-full bg-ember/15 border border-ember/40 flex items-center justify-center text-ember-glow transition-transform duration-300 group-hover:rotate-12"
-              >
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 20h18M5 20l7-13 7 13M9 20v-5h6v5"
-                  />
-                </svg>
-              </span>
-              Aguit Camp
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-ember/40 transition-transform duration-300 group-hover:rotate-12"
+              />
+              Aguta Camp
             </Link>
 
             {/* Desktop links */}
@@ -194,8 +185,16 @@ export default function Navbar() {
               className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-bark shadow-2xl md:hidden flex flex-col"
             >
               <div className="flex items-center justify-between px-6 h-16">
-                <span className="font-display text-xl text-sand font-semibold">
-                  Aguit Camp
+                <span className="flex items-center gap-2.5 font-display text-xl text-sand font-semibold">
+                  <Image
+                    src="/images/logo.jpeg"
+                    alt=""
+                    width={48}
+                    height={48}
+                    aria-hidden="true"
+                    className="w-12 h-12 rounded-full object-cover border border-ember/40"
+                  />
+                  Aguta Camp
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
